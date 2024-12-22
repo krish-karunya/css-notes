@@ -1,0 +1,176 @@
+CSS Notes :
+
+Margin:
+
+* When we giving  margin bottom and  margin top for upper and lower div example (50px and 20px) = it won't take 70px actually it will collapse and it will take larger value 50px only
+
+width:
+
+If you specify both width and max-width for the same element:
+
+If the width is smaller than or equal to the max-width, then the width will apply.
+If the width is larger than the max-width, then max-width wins, and the element will only grow up to the max-width value.
+
+font:
+Why Use rem or em?
+Scalability:
+
+Using rem or em allows font sizes to scale proportionally, improving responsiveness.
+If the user changes the root font size in the browser settings, all text adjusts automatically.
+Accessibility:
+
+These units respect user preferences and provide better support for people with visual impairments.
+Consistency (rem):
+
+rem ensures consistency because it depends on the root font size.
+It avoids the cascading complexity of em.
+
+
+Box-Model :
+
+When you set the width and height properties of an element with CSS, you just set the width and height of the content area. To calculate the total width and height of an element, you must also include the padding and borders.
+
+But when you use the Box-sizing:border-box; all the properties will be includes in this...
+
+
+Outline :
+
+Outline differs from borders! Unlike border, the outline is drawn outside the element's border, and may overlap other content. Also, the outline is NOT a part of the element's dimensions; the element's total width and height is not affected by the width of the outline.
+
+
+Color picker -  is website we can select the better color 
+
+
+float:
+
+using float we can position the image and as well a div too , Using this text will flow around the image eg: float:left
+If the image overflow out of the body To avoid that use 
+display :flow-root in body style
+
+Box shadow :
+Box Shadow : horizontal vertical blur colour
+box shadow: 3px 3px 5px red
+
+Overflow:
+when the set the overflow auto , If the content does fit mean it add automatically add the scroll bar 
+
+
+Display Properties :
+
+Block - Takes Entire Space
+Inline - Takes space based on size of element,we won't the width and height
+Inline-Block- Act like a Inline element - but we can change the width and height 
+
+
+Position properties :
+
+position properties help us we can position element wherever we want there four position properties are there static,absolute,relative,fixed,sticky
+
+static - default behaviour
+relative - we set the position:relative -it unlock top,bottom,right and left ,we can able to move the element from the orginal position to whereever we want 
+
+absolute -It get out of from the original position, It always look for nearest ancestor ,we  give the parent div relative and child div is absolute ,if we try to move parent div child div also move along with that ,we can move child with in this parent div
+
+
+background Properties :
+
+backgorund-image:url(image.url);
+background-repeat: no-repeat; - If image size is small default it will repeat image for entire screen  to avoid that we need to use this 
+background-position : center - set the position 
+background-attachment : fixed - set image fixed 
+background-size:cover - even it is small image cover properties cover the entire screen 
+
+
+Combinator :
+   = descendant
+ > = child
+ ~ = general sibling
+ + = adjacent sibling
+
+.container p => It apply all the div inside the para(all the descendent combinator)
+.container>p => Child of the div para will be selected
+
+pseudo-class: (best example is button,li,a=> link,hover,active,visited) it modifybutton behivour => order is important first => a:ink,hover,active,visited
+li:not(:hover){   - =>anythin which not hover that color will be gray 
+backgroud-color: gray
+}
+li:nth-child(5){ => we can set here(even,odd,3n,3n+1)
+backgroud-color: yellow
+}
+
+
+pseudo-element:keyword added after a seletor that's used t style a specific part of an element 
+h1::first-letter{   //first-line,selection,before,after,marker
+font-size:2em
+}
+
+
+
+Semantic Tags:
+
+* Keep your content organized
+* Better for SEO
+* Assists screen readers and
+other tech for accessibility
+
+header = introductory content
+nav = navigation bar , link
+main = main content includes(section,artile,dv,aside)
+section - dependent content(if you cut it and paste it in some other page it doesn't make any sense)
+aside = side content
+article = independent content
+footer = closing content
+
+
+flex:
+
+It is used to arrange the element 1 dimensional,Below all the style apply for parent div
+
+display:flex
+justify-content:center;
+align-item:center
+flex-wrap:warp; (flex-wrap is always used with align-content)
+align-content:flex-start ;(If you not using this while wrapping space will form between the element) =>(flex-end,space-evenly,space-around,space-between)
+
+
+child div:
+
+align-self:center ;=(flex-start,flex-end) (we can select the particular child element and place it whereever our wish to)
+
+order properties is used to change the order of the element with change the html elelment
+
+order:-1 => this element will come first
+
+
+Transformation :
+
+using this we can transform the position of the element ,we can also use with image
+transform:translateX(100px) => it will move 100px from x-direction form the orginal position exactly similar to y
+transform : rotateZ(45deg); => rotate a element 
+transform : scaleX(1.1); => increase the size
+transform : skewX(135deg) => sliding kind of position
+
+Animation:
+To create a aniation we need to use @keyframe animation-name don't forgot to give animation-duration otherwise it won't work
+
+eg:@keyframe slideleft{
+from{                           // from - represent start from 100px and come to original position
+transform:translate(100px)
+}
+}
+
+eg:@keyframe slideright{
+to{                           // to - represent begin with original position end to 100px right side
+transform:translate(100px)
+}
+}
+
+
+eg:@keyframe rotate{   //when we using 50% percentage it will complete the animation half of the duration time and another half time will revert back to the original position
+
+50%{                           
+transform:roateZ(360deg) 
+}
+}
+
+Exactly similar like translate properties we can use rotate
